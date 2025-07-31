@@ -1,0 +1,57 @@
+{
+  "uuid": "89690a53-60c3-470b-96ce-42c5b0ddc9b4",
+  "name": "Bookstore API",
+  "port": 3000,
+  "routes": [
+    {
+      "method": "post",
+      "path": "/books",
+      "responses": [
+        {
+          "statusCode": 201,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"id\": 1, \"title\": \"{{body.title}}\", \"author\": \"{{body.author}}\", \"price\": {{body.price}}}"
+        },
+        {
+          "statusCode": 422,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"error\": \"Invalid book data\"}",
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "title",
+              "value": "",
+              "operator": "equals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/books/:id",
+      "responses": [
+        {
+          "statusCode": 404,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"error\": \"Book not found\"}"
+        }
+      ]
+    }
+  ]
+}

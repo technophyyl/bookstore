@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Bookstore API Test Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="API Tests(failed)" verbose="0">
+    <classes>
+      <class name="com.bookstore.api.tests.BookstoreApiTests">
+        <methods>
+          <include name="testCreateBookInvalidData"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.bookstore.api.tests.BookstoreApiTests -->
+    </classes>
+  </test> <!-- API Tests(failed) -->
+</suite> <!-- Failed suite [Bookstore API Test Suite] -->
